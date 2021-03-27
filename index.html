@@ -3,15 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Problem Set 1</title>
     <style>
         :root {
             font-size: 24px;
-        }
-
-        * {
-            touch-action: manipulation;
         }
 
         main {
@@ -73,12 +69,14 @@
         var cnt = 0;
         var x = document.getElementById("var-x");
         var intervalHandle = setInterval(function () {
-            --cnt;
+            if (cnt > 0) {
+                --cnt;
+            }
             repaint();
-        }, 2500);
+        }, 1500);
         x.addEventListener("click", handleClick);
         function handleClick() {
-            ++cnt;
+            cnt += 5;
             repaint();
             if (cnt >= 15) {
                 if (intervalHandle) {
